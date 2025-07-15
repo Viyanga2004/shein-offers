@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shein Gift Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #D1005F;
+    }
+    p {
+      font-size: 16px;
+    }
+    .claim-btn {
+      background-color: #D1005F;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎁 Get Your Free Shein Gift Card!</h1>
+    <p>Click the button below to claim your exclusive Shein Gift Card. Limited-time offer only!</p>
+    <button class="claim-btn" onclick="redirectToOffer()">Claim Now</button>
+  </div>
+
+  <script>
+    function redirectToOffer() {
+      // Step 1: Trigger request to generate click ID
+      const baseURL = "https://go4affm.com/c/?p=46881&o=24931&s1=fdbg&s2=fbtraffic";
+      const img = new Image();
+      img.src = baseURL;
+
+      // Step 2: Delay and then fetch the redirect URL with click ID
+      setTimeout(() => {
+        fetch(baseURL, { redirect: "follow" })
+          .then(response => {
+            if (response.url.includes("clickid=")) {
+              // Step 3: Redirect with Click ID
+              window.location.href = response.url;
+            } else {
+              // Fallback: use base URL
+              window.location.href = baseURL;
+            }
+          })
+          .catch(() => {
+            // Fallback in case of error
+            window.location.href = baseURL;
+          });
+      }, 1200); // Wait 1.2 seconds to ensure click ID is generated
+    }
+  </script>
+</body>
+</html>
